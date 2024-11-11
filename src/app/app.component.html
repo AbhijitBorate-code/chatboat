@@ -1,0 +1,31 @@
+<div class="full-size bg-black">
+  <section class="text-center">
+    <h2 class="text-white fz-15 fw-30 fw-bold">CHAT WITH AI</h2>
+  </section>
+  <section class="chat-container">
+    <ng-container *ngFor="let msg of message">
+      <div class="my-text">
+        {{ msg }}
+      </div>
+    </ng-container>
+    <ng-container *ngFor="let item of messageAI">
+      <div class="chat-input" *ngIf="messageAI.length != 0">
+        {{ item }}
+      </div>
+    </ng-container>
+  </section>
+  <section class="text-center">
+    <div class="form-container">
+      <form [formGroup]="myForm">
+        <input matInput 
+               placeholder="Type your message..." 
+               class="input-field" 
+               formControlName="text" 
+               ngModel 
+                />
+        <button mat-raised-button color="primary" type="submit" class="submit-btn" (click)="onSubmit() ">Send</button>
+      </form>
+      
+    </div>
+  </section>
+</div>

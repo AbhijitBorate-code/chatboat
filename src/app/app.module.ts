@@ -3,6 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input'; // If you're using input elements inside <mat-form-field>
+import {MatButtonModule} from '@angular/material/button';
+import { ReactiveFormsModule ,  FormsModule} from '@angular/forms';
+import { GeminiService } from './gemini.service';
 
 @NgModule({
   declarations: [
@@ -10,9 +15,14 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [GeminiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

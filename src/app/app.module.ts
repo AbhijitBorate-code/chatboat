@@ -8,6 +8,7 @@ import { MatInputModule } from '@angular/material/input'; // If you're using inp
 import {MatButtonModule} from '@angular/material/button';
 import { ReactiveFormsModule ,  FormsModule} from '@angular/forms';
 import { GeminiService } from './gemini.service';
+import { MarkdownModule } from 'ngx-markdown';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,16 @@ import { GeminiService } from './gemini.service';
     MatInputModule,
     MatButtonModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MarkdownModule.forRoot({
+      markedOptions: {
+        provide: 'markedOptions',
+        useValue: {
+          gfm: true, // GitHub Flavored Markdown
+          breaks: true // Automatically create line breaks in text
+        }
+      }
+    })
   ],
   providers: [GeminiService],
   bootstrap: [AppComponent]

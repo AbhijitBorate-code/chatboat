@@ -1,16 +1,18 @@
 <div class="full-size bg-black">
-  <section class="text-center">
-    <h2 class="text-white fz-15 fw-30 fw-bold">CHAT WITH AI</h2>
+  <section class="text-center mb-4">
+    <h2 class="text-white fz-30  fw-bold">CHAT WITH AI</h2>
   </section>
   <section #chatContainer class="chat-container">
-
     <ng-container *ngFor="let msg of message">
       <div *ngIf="msg.sender === 'user'" class="my-text">
-        {{ msg.text }}
+        <markdown>
+          {{ msg.text }}
+        </markdown>
       </div>
       <div *ngIf="msg.sender === 'ai'" class="chat-input">
-        {{ msg.text }}
-      </div>
+        <markdown>
+          {{ msg.text }}
+        </markdown>      </div>
     </ng-container>  
   </section>
   

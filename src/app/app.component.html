@@ -2,18 +2,18 @@
   <section class="text-center">
     <h2 class="text-white fz-15 fw-30 fw-bold">CHAT WITH AI</h2>
   </section>
-  <section class="chat-container">
+  <section #chatContainer class="chat-container">
+
     <ng-container *ngFor="let msg of message">
-      <div class="my-text">
-        {{ msg }}
+      <div *ngIf="msg.sender === 'user'" class="my-text">
+        {{ msg.text }}
       </div>
-    </ng-container>
-    <ng-container *ngFor="let item of messageAI">
-      <div class="chat-input" *ngIf="messageAI.length != 0">
-        {{ item }}
+      <div *ngIf="msg.sender === 'ai'" class="chat-input">
+        {{ msg.text }}
       </div>
-    </ng-container>
+    </ng-container>  
   </section>
+  
   <section class="text-center">
     <div class="form-container">
       <form [formGroup]="myForm">
@@ -23,7 +23,7 @@
                formControlName="text" 
                ngModel 
                 />
-        <button mat-raised-button color="primary" type="submit" class="submit-btn" (click)="onSubmit() ">Send</button>
+        <button #button mat-raised-button color="primary" type="submit" class="submit-btn" (click)="onSubmit() ">Send</button>
       </form>
       
     </div>
